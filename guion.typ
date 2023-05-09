@@ -51,9 +51,30 @@ Ser open source significa que el código fuente de Typst está disponible públi
 
 En resumen, la naturaleza open source de Typst permite que la comunidad de desarrolladores y usuarios trabajen juntos para mejorar el lenguaje, crear versiones personalizadas y aumentar la transparencia y accesibilidad del lenguaje.
 
+== Cómo ocupar Typst
+
+Hay dos opciones, la primera es descargar el programa y la segunda es ocuparlo en línea.
+
+=== Descargar el CLI
+
+Se puede descargar el binario de Typst desde la página oficial de Typst. El binario está disponible para Windows, Mac y Linux. Una vez descargado, se puede instalar el programa en el sistema operativo correspondiente.
+
+==== Comandos
+
+Una vez instalado, se puede utilizar Typst desde la terminal con los siguientes comandos:
+
+- `typst compile <nombre>`: compila el archivo de Typst con el nombre especificado.
+- `typst watch <nombre>`: compila el archivo de Typst con el nombre especificado y lo actualiza automáticamente cada vez que se guardan cambios en el archivo.
+
+Yo utilizo el comando `typst watch <nombre>` junto con `zathura` para ver el documento en tiempo real.
+
+=== Ocuparlo en línea
+
+Se puede ocupar Typst en línea desde la página oficial de #link("https://typst.app/")[#text(blue)[Typst]]. Para ello, es necesario crear una cuenta de usuario y luego iniciar sesión en la página web. Una vez iniciada la sesión, se puede comenzar a utilizar Typst en línea.
+
 == Sintáxis y modos de Typst
 
-Typst se basa en dos modos principales: el *modo markup* o bloques de contenido y el *modo código* o de funciones.
+Typst se basa en tres modos principales: el *modo markup* o bloques de contenido, el *modo código* o de funciones y el *modo matemático*.
 
 El de markup es el modo por defecto, y se utiliza para escribir texto normal, con algunas caracteristicas que enriquecen el texto al estilo de Markdown. Y el modo código se utiliza para escribir funciones y macros, que permiten modificar bloques de contenido y darle formato al documento.
 
@@ -81,7 +102,7 @@ Hola, este es un párrafo normal.
 ]
 )
 
-Por defecto se utiliza el modo markup, pero se puede cambiar a modo código se debe comenzar con un `#` y luego el nombre de la función o macro que se quiere utilizar. Nota importante: el `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se está en el modo código y se quiere ocupar de nuevo una función no es necesario volverla a ocupar.
+Por defecto se utiliza el modo markup.
 
 La función `#lorem(n)`: genera un parráfo de texto lorem ipsum de `n` palabras.
 
@@ -166,6 +187,18 @@ $ sum_(k=0)^n k
 
 Vamos a ver algunas funciones y macros que permiten darle formato al documento. De todos modos hay una lista más extensa de funcionalidades.
 
+Normalmente sigue el patrón:
+
+```typ
+#función(argumentos)[
+  contenido
+]
+```
+
+El contenido es un bloque de contenido, y por ende puede tener más funciones y macros dentro.
+
+El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se está en el modo código y se quiere ocupar de nuevo una función no es necesario volverla a ocupar.
+
 === Cambiar el formato de un párrafo
 
 
@@ -184,6 +217,8 @@ Vamos a ver algunas funciones y macros que permiten darle formato al documento. 
 ]]
 )
 
+=== Cambiar el formato utilizando `#set`
+
 Esto sólo cambia el formato de todo el bloque de contenido que se le pasa como argumento. Para hacer que este cambio sea permanente se debe utilizar la macro `#set`.
 
 #grid(
@@ -200,5 +235,66 @@ Esto sólo cambia el formato de todo el bloque de contenido que se le pasa como 
 
 = Título
 #lorem(40).
+]
+)
+
+=== Función `#show`
+
+Esta función permite reemplazar el contenido de un bloque de contenido por otro.
+
+#grid(
+    columns: (50%, 50%),
+    gutter: 20pt,
+```typ
+#show "Ping": "Pong"
+
+Ping
+```,
+[#show "Ping": "Pong"
+
+Ping]
+)
+
+Podemos recuperar el contenido original con la siguiente sintaxis:
+
+#grid(
+    columns: (50%, 50%),
+    gutter: 20pt,
+```typ
+#show "Hola": name => [
+    #name...
+]
+
+Hola
+```,
+[#show "Hola": name => [
+    #name...
+]
+
+Hola]
+)
+
+También se puede ocupar para afectar a todos los bloques de contenido del documento.
+
+
+#grid(
+    columns: (50%, 50%),
+    gutter: 20pt,
+```typ
+#show: rest => text(
+    [#rest...]
+)
+
+Hola que tal\
+Bla bla bla
+```,
+[#show: rest => text(
+    [#rest...]
+)
+
+Hola que tal\
+Nooooo\
+Bla bla bla
+== Modo sexo
 ]
 )

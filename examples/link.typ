@@ -1,0 +1,1 @@
+Puedes encontrar más información en #link("https://typst.app/")[#text(blue)[Typst]]

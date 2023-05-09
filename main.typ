@@ -17,7 +17,6 @@
 #slide(title: "Introducción")[
 - Typst es un lenguaje de tipografía de código abierto para escribir documentos de alta calidad tipográfica.
 - Creado por desarrolladores insatisfechos con LaTeX, ofrece una sintaxis sencilla y moderna.
-- Soluciona la compilación lenta, el trabajo colaborativo, la creación de macros y templates y es más fácil de aprender que LaTeX.
 ]
 
 #slide(title: "Problemáticas que soluciona Typst")[
@@ -124,7 +123,7 @@ width: auto,
 El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se está en el modo código y se quiere ocupar de nuevo una función no es necesario volverla a ocupar.
 ]
 
-#slide(title: "Función `#text`")[
+#slide(title: [Función `#text`])[
   La función `#text` permite darle formato al texto, como cambiar el tamaño, el color, la alineación, etc.
   #preview-block(
     size: 20pt,
@@ -132,7 +131,7 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
   )
 ]
 
-#slide(title: "Función `#image`")[
+#slide(title: [Función `#image`])[
   #text(20pt, align(center,
   grid(
       columns: (auto, auto),
@@ -147,7 +146,7 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
   ))
 ]
 
-#slide(title: "Función `#link`")[
+#slide(title: [Función `#link`])[
   #preview-block(
     size: 20pt,
     content:"Puedes encontrar más información en #link(\"https://typst.app/\")[#text(blue)[Typst]]"
@@ -163,7 +162,7 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
 
 #new-section("Crear nuestras funciones")
 
-#slide(title: "Función `#let`")[
+#slide(title: [Función `#let`])[
   La función `#let` permite crear nuestras propias funciones.
   #preview-block(
     size: 20pt,
@@ -179,7 +178,7 @@ Yo soy #faboloso(color: purple)[faboloso]!"
 
 #new-section("Funciones de reglas")
 
-#slide(title: "Función `#set`")[
+#slide(title: [Función `#set`])[
   La función `#set` permite establecer reglas que se aplicarán a todo el documento.
   #preview-block(
     size: 20pt,
@@ -190,7 +189,7 @@ Yo soy #faboloso(color: purple)[faboloso]!"
 #lorem(20)")
 ]
 
-#slide(title: "Función `show`")[
+#slide(title: [Función `show`])[
   La función `show` lo que hace es establecer una regla que va a reemplazar el elemento que se indique por lo que nosotros queramos.
   #preview-block(
     size: 20pt,
@@ -198,7 +197,7 @@ Yo soy #faboloso(color: purple)[faboloso]!"
 Ping")
 ]
 
-#slide(title: "Función `show` obtener el valor")[
+#slide(title: [Función `show` obtener el valor])[
   También se puede acceder al valor de la regla con la siguiente sintaxis:
   #preview-block(
     size: 20pt,
@@ -206,7 +205,7 @@ Ping")
 Hola mundo")
 ]
 
-#slide(title: "Función `show` con selecctor general")[
+#slide(title: [Función `show` con selecctor general])[
   Hay veces que queremos pasar el _resto_ del documento como parámetro, para eso se utiliza el selector general.
   #preview-block(
     size: 18pt,

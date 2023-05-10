@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=2cm}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Secuencia de Fibonacci}}
+\end{center}
+
+\section{Definición Recursiva}
+
+La secuencia de Fibonacci se define de forma recursiva como:
+
+\begin{equation*}
+    F_n = \begin{cases}
+               0 & \text{si } n = 0 \\
+               1 & \text{si } n = 1 \\
+               F_{n-1} + F_{n-2} & \text{si } n > 1
+           \end{cases}
+\end{equation*}
+
+\section{Ecuación Cerrada}
+
+La secuencia de Fibonacci también se puede expresar mediante la siguiente ecuación cerrada:
+
+\begin{equation*}
+    F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right]
+\end{equation*}
+
+\section{Tabla de Valores}
+
+A continuación se muestra una tabla que presenta los primeros 10 números de la secuencia de Fibonacci:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+$n$ & $F_n$ \\ \midrule
+0 & 0 \\
+1 & 1 \\
+2 & 1 \\
+3 & 2 \\
+4 & 3 \\
+5 & 5 \\
+6 & 8 \\
+7 & 13 \\
+8 & 21 \\
+9 & 34 \\ \bottomrule
+\end{tabular}
+\caption{Los primeros 10 números de la secuencia de Fibonacci.}
+\end{table}
+
+\end{document}

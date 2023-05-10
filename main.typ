@@ -148,24 +148,24 @@ $ F_n = 1 / sqrt(5) [ ((1 + sqrt(5)) / (2))^n - ((1 - sqrt(5))/(2))^n ] $
 ]
 
 #slide(title: "Aplicación Web")[
-Se puede ocupar Typst en línea desde la página oficial de #link("https://typst.app/")[#text(blue)[\Typst]]. Para ello, es necesario crear una cuenta de usuario y luego iniciar sesión en la página web. Una vez iniciada la sesión, se puede comenzar a utilizar Typst en línea.
+Se puede ocupar Typst en línea desde la página oficial de #link("https://typst.app/")[\Typst]. Para ello, es necesario crear una cuenta de usuario y luego iniciar sesión en la página web. Una vez iniciada la sesión, se puede comenzar a utilizar Typst en línea.
 ]
 
 #slide(title: "CLI")[
-- Descarga el binario desde el repositorio de #link("https://github.com/typst/typst/releases")[#text(blue)[GitHub]] para tu sistema operativo.
+- Descarga el binario desde el repositorio de #link("https://github.com/typst/typst/releases")[GitHub] para tu sistema operativo.
 - Usa los siguientes comandos desde la terminal:
   - `typst compile <nombre>`: compila el archivo de Typst con el nombre especificado.
   - `typst watch <nombre>`: compila el archivo de Typst con el nombre especificado y lo actualiza automáticamente cada vez que se guardan cambios en el archivo.
 
-Nota: Yo utilizo el comando `typst watch <nombre-typ>` y `zathura <nombre-pdf>` para ver los cambios en tiempo real.
+Nota: yo utilizo el comando `typst watch <nombre-typ>` y `zathura <nombre-pdf>` para ver los cambios en tiempo real.
 ]
 
 #slide(title: "Integración con VSCode")[
-La extensión #link("https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp")[#text(blue)[Typst LSP]] permite resaltar sintaxis, reportar errores, autocompletar código y ayuda con la firma de funciones. Además, compila a PDF al guardar y puede configurarse para compilar en tiempo real o deshabilitar la función.
+La extensión #link("https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp")[Typst LSP] permite resaltar sintaxis, reportar errores, autocompletar código y ayuda con la firma de funciones. Además, compila a PDF al guardar y puede configurarse para compilar en tiempo real o deshabilitar la función.
 ]
 
 #slide(title: "Documentación")[
-La documentación de Typst se encuentra en #link("https://typst.app/docs")[#text(blue)[\Typst Docs]].
+La documentación de Typst se encuentra en #link("https://typst.app/docs")[\Typst Docs].
 ]
 
 #slide(title: "Modos de Typst")[
@@ -197,7 +197,7 @@ Letras en _cursiva_ y *negrita*."
 #slide(title: "Modo matemático")[
 Para entrar en modo matemático se utiliza `$<ecuaciones>$` al igual que en Markdown o LaTeX. Y si se quiere escribir una ecuación en una línea aparte, se utiliza `$ <ecuaciones> $`.
 
-Typst tiene una gran cantidad de símbolos matemáticos, y se pueden consultar en la #link("https://typst.app/docs/reference/symbols/sym/", text(blue, [documentación])).
+Typst tiene una gran cantidad de símbolos matemáticos, y se pueden consultar en la #link("https://typst.app/docs/reference/symbols/sym/",[documentación]).
 ]
 
 #slide(title: "Ejemplo modo matemático")[
@@ -253,7 +253,7 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
 #slide(title: [Función `#link`])[
   #preview-block(
     size: 20pt,
-    content:"Puedes encontrar más información en #link(\"https://typst.app/\")[#text(blue)[\Typst]]"
+    content:"Puedes encontrar más información en #link(\"https://typst.app/\")[\Typst]"
   )
 ]
 
@@ -267,11 +267,11 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
 #new-section("Variables, funciones y modularización")
 
 #slide(theme-variant: "wake up")[
-  Funciones y modularización
+  Variables, funciones y modularización
 ]
 
 #slide(title: [Función `#let`])[
-  La función `#let` permite crear nuestras propias funciones.
+  La función `#let` permite crear nuestras propias variables y funciones.
   #preview-block(
     size: 20pt,
     content:"#let faboloso(term, color: blue) = {
@@ -325,7 +325,8 @@ text(color, box[||| #term |||])
 ]
 
 #slide(title: [Función `#set`])[
-  La función `#set` permite establecer reglas que se aplicarán a todo el documento.
+  La función `#set` permite establecer reglas que se le aplican a los elementos que se indiquen. Los elementos que se pueden modificar son todos aquellos que tienen asociado alguna función.
+
   #preview-block(
     size: 20pt,
     content:"#set text(font: \"Ubuntu Mono\")
@@ -333,9 +334,25 @@ text(color, box[||| #term |||])
 #set par(justify: true)
 
 #lorem(20)")
+
 ]
 
-#slide(title: [Función `show`])[
+#slide(title: [Función `#set` y scope])[
+  Las reglas que se establecen con `#set` tienen el scope del bloque de contenido en donde se encuentran.
+
+  #preview-block(
+    size: 20pt,
+    content:"Esto se ve afectado #[
+  #set list(marker: [--])
+  - Dash
+]
+
+Pero esto no:
+- Bullet"
+)
+]
+
+#slide(title: [Función `#show`])[
   La función `show` lo que hace es establecer una regla que va a reemplazar el elemento que se indique por lo que nosotros queramos.
   #preview-block(
     size: 20pt,
@@ -343,7 +360,7 @@ text(color, box[||| #term |||])
 Ping")
 ]
 
-#slide(title: [Función `show` obtener el valor])[
+#slide(title: [Función `#show` obtener el valor])[
   También se puede acceder al valor de la regla con la siguiente sintaxis:
   #preview-block(
     size: 20pt,
@@ -351,7 +368,7 @@ Ping")
 Hola mundo")
 ]
 
-#slide(title: [Función `show` con selecctor general])[
+#slide(title: [Función `#show` con selecctor general])[
   Hay veces que queremos pasar el _resto_ del documento como parámetro, para eso se utiliza el selector general.
   #preview-block(
     size: 18pt,

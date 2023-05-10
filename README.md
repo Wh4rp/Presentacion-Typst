@@ -1,4 +1,4 @@
-# Presentación de Typst
+# Typst: ¿el reemplazo de LaTeX?
 
 Presentación hecha en [Typst](https://typst.app/) junto con el modulo de [typst-slides](https://github.com/andreasKroepelin/typst-slides) para el ciclo de charlas de [Open Source UC](https://github.com/open-source-uc).
 

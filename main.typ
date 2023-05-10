@@ -1,6 +1,8 @@
 #import "modulos/slides.typ": *
 #import "modulos/preview-block.typ": *
 
+// Preambulo
+
 #show "Typst": box[#box(baseline: 0.3em, image("src/typst.svg", height: 0.9em))]
 #show "LaTeX": box[#box(baseline: 0.3em, image("src/latex.svg", height: 0.9em))]
 
@@ -8,6 +10,8 @@
   #set text(blue)
   #it
 ]
+
+// Main
 
 #show: slides.with(
     authors: ("Matías Fernández Taipe"), short-authors: "Matías F.",
@@ -389,5 +393,10 @@ Hola mundo")
 #new-section("Despedida")
 
 #slide(theme-variant: "wake up")[
-  Gracias por su atención
+
+  #set align(center)
+
+  Gracias por su atención!
+
+  #image("src/capybara-bye.png", width: 60%)
 ]

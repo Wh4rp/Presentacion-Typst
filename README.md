@@ -1,10 +1,10 @@
 # Presentación de Typst
 
-Presentación hecha en [Typst](htpps://typst.com) para el ciclo de charlas de [Open Source UC](https://github.com/open-source-uc).
+Presentación hecha en [Typst](htpps://typst.app) para el ciclo de charlas de [Open Source UC](https://github.com/open-source-uc).
 
 ## Compilar
 
-Primero debes instalar [Typst](htpps://typst.com) y luego ejecutar:
+Primero debes instalar el CLI de [Typst](https://github.com/typst/typst#installation) y luego ejecutar:
 
 ```bash
 typst compile main.pdf

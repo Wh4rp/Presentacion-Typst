@@ -18,7 +18,7 @@ typst compile main.pdf
 
 - `modulos/`: Contiene la presentación de los módulos de Typst.
 
-  - `slides.typ`: Modulo de slides para Typst. [Respositorio]("https://github.com/andreasKroepelin/typst-slides")
+  - `slides.typ`: Modulo de slides para Typst. [Respositorio](https://github.com/andreasKroepelin/typst-slides)
 
   - `preview-typ.typ`: Modulo creado por mi que sirve para previsualizar el código de Typst junto con su compilación.
 

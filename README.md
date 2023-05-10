@@ -1,6 +1,6 @@
 # Presentación de Typst
 
-Presentación hecha en [Typst](htpps://typst.com) para el ciclo de charlas de Open Source UC.
+Presentación hecha en [Typst](htpps://typst.com) para el ciclo de charlas de [Open Source UC](https://github.com/open-source-uc).
 
 ## Compilar
 

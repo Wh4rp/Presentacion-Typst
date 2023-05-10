@@ -98,7 +98,7 @@ La secuencia de Fibonacci también se puede expresar mediante la siguiente ecuac
 #align(center)[#text(12pt)[#box(fill: luma(230), inset: 5pt)[
 #align(left)[
 ```typst
-#set page(paper: "a5", margin: 1cm)
+#set page(paper: "a5", margin: 2cm)
 #set heading(numbering: "1   ")
 
 #align(center)[

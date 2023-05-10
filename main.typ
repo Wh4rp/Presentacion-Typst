@@ -368,8 +368,8 @@ Ping")
 Hola mundo")
 ]
 
-#slide(title: [Función `#show` con selecctor general])[
-  Hay veces que queremos pasar el _resto_ del documento como parámetro, para eso se utiliza el selector general.
+#slide(title: [Función `#show` con selecctor universal])[
+  Hay veces que queremos pasar el _resto_ del documento como parámetro, para eso se utiliza el selector universal.
   #preview-block(
     size: 18pt,
     content:"#show: rest => columns(2, rest)

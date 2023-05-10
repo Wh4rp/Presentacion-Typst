@@ -1,8 +1,13 @@
-#import "slides.typ": *
-#import "preview-block.typ": *
+#import "modulos/slides.typ": *
+#import "modulos/preview-block.typ": *
 
 #show "Typst": box[#box(baseline: 0.3em, image("src/typst.svg", height: 0.9em))]
 #show "LaTeX": box[#box(baseline: 0.3em, image("src/latex.svg", height: 0.9em))]
+
+#show link: it => [
+  #set text(blue)
+  #it
+]
 
 #show: slides.with(
     authors: ("Matías Fernández Taipe"), short-authors: "Matías F.",
@@ -42,7 +47,7 @@
   Comparativa LaTeX vs Typst
 ]
 
-#slide(title: [#text(20pt)[`Fibonacci.text`]])[
+#slide(title: [#text(20pt)[`Fibonacci.tex`]])[
 #align(center)[#text(9pt)[#box(fill: luma(230), inset: 5pt)[
 #align(left)[
 ```latex
@@ -86,7 +91,7 @@ La secuencia de Fibonacci también se puede expresar mediante la siguiente ecuac
 ]
 
 #slide(title: [#text(20pt)[`Fibonacci.typ`]])[
-#align(center)[#text(9pt)[#box(fill: luma(230), inset: 5pt)[
+#align(center)[#text(12pt)[#box(fill: luma(230), inset: 5pt)[
 #align(left)[
 ```typst
 #set page(paper: "a5", margin: 1cm)
@@ -132,17 +137,6 @@ $ F_n = 1 / sqrt(5) [ ((1 + sqrt(5)) / (2))^n - ((1 - sqrt(5))/(2))^n ] $
 
 ]
 
-#slide(theme-variant: "wake up")[
-  Open Source
-]
-
-#slide(title: "Ventajas de que sea Open Source")[
-- Mejora constante
-- Flexibilidad
-- Transparencia
-- Sin costos de licencia
-]
-
 #new-section("Cómo ocupar Typst")
 
 #slide(theme-variant: "wake up")[
@@ -159,7 +153,7 @@ Se puede ocupar Typst en línea desde la página oficial de #link("https://typst
   - `typst compile <nombre>`: compila el archivo de Typst con el nombre especificado.
   - `typst watch <nombre>`: compila el archivo de Typst con el nombre especificado y lo actualiza automáticamente cada vez que se guardan cambios en el archivo.
 
-Nota: Yo utilizo el comando `typst watch <nombre-typ> & zathura <nombre-pdf>` para ver los cambios en tiempo real.
+Nota: Yo utilizo el comando `typst watch <nombre-typ>` y `zathura <nombre-pdf>` para ver los cambios en tiempo real.
 ]
 
 #slide(title: "Integración con VSCode")[
@@ -266,14 +260,18 @@ El `#` se utiliza para desambiguar el modo código del modo markup, cuando ya se
   )
 ]
 
-#new-section("Crear nuestras funciones")
+#new-section("Variables, funciones y modularización")
+
+#slide(theme-variant: "wake up")[
+  Funciones y modularización
+]
 
 #slide(title: [Función `#let`])[
   La función `#let` permite crear nuestras propias funciones.
   #preview-block(
     size: 20pt,
     content:"#let faboloso(term, color: blue) = {
-text(color, box[||| #term |||])
+  text(color, box[||| #term |||])
 }
 
 Tú eres #faboloso[guapisimo]!
@@ -282,7 +280,45 @@ Yo soy #faboloso(color: purple)[faboloso]!"
 )
 ]
 
+#slide(title: [Función `#import`])[
+  La función `#import` permite importar variables y funciones de otros archivos. Supongamos tenemos el archivo `faboloso.typ` con la función `faboloso`:
+  #raw-view(
+width: auto,
+```typ
+#let faboloso(term, color: blue) = {
+  text(color, box[||| #term |||])
+}
+```)
+
+  Luego lo podemos llamar de la siguiente manera:
+
+#text(20pt, align(center,
+  grid(
+      columns: (auto, auto),
+      column-gutter: 20pt,
+      align(left, raw-view[#raw(lang:"typ", "#import \"faboloso.typ\": faboloso
+
+Tú eres #faboloso[guapisimo]!
+
+Yo soy #faboloso(color: purple)[faboloso]!")]),
+      align(left, preview[
+        #let faboloso(term, color: blue) = {
+text(color, box[||| #term |||])
+}
+        Tú eres #faboloso[guapisimo]!
+
+        Yo soy #faboloso(color: purple)[faboloso]!
+      ]),
+  )
+  ))
+
+]
+
 #new-section("Funciones de reglas")
+
+#slide(theme-variant: "wake up")[
+  Funciones de reglas
+]
 
 #slide(title: [Función `#set`])[
   La función `#set` permite establecer reglas que se aplicarán a todo el documento.
@@ -330,10 +366,24 @@ Hola mundo")
 
 #new-section("Discusión final")
 
+#slide(theme-variant: "wake up")[
+  Discusión final
+]
+
 #slide(title: "Podrá Typst reemplazar a LaTeX?")[
   Probablemente *no* a corto plazo:
   - Aún está en fase de desarrollo y por ende le quedan muchas funcionalidades y errores por corregir.
   - LaTeX es un estándar de facto en el mundo científico.
+
+  Pese a esto, Typst es una herramienta muy interesante y con mucho potencial.
+]
+
+#slide(title: "Links de interés")[
+  - #link("https://typst.app/")[Página oficial]
+  - #link("https://typst.app/docs/")[Documentación oficial]
+  - #link("https://github.com/typst/typst")[Repositorio de GitHub]
+  - #link("https://github.com/qjcg/awesome-typst")[Awesome \Typst]
+  - #link("https://discord.gg/2uDybryKPe")[Discord oficial]
 ]
 
 #new-section("Despedida")

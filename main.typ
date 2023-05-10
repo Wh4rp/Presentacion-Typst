@@ -4,7 +4,7 @@
 // Preambulo
 
 #show "Typst": box[#box(baseline: 0.3em, image("src/typst.svg", height: 0.9em))]
-#show "LaTeX": box[#box(baseline: 0.3em, image("src/latex.svg", height: 0.9em))]
+#show "LaTeX": box[#box(baseline: 0.31em, image("src/latex.svg", height: 1.1em))]
 
 #show link: it => [
   #set text(blue)
@@ -30,7 +30,7 @@
 - Typst es un lenguaje de tipografía de código abierto para escribir documentos de alta calidad tipográfica.
 - Creado por desarrolladores insatisfechos con LaTeX, ofrece una sintaxis sencilla y moderna.
 
-#align(center, image("src/mockup.png", width: 87%))
+#align(center, image("src/mockup.png", width: 85%))
 ]
 
 #slide(title: "Problemáticas que soluciona Typst")[

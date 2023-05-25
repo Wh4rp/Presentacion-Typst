@@ -18,7 +18,7 @@
     authors: ("Matías Fernández Taipe"), short-authors: "Matías F.",
     title: "Typst: ¿el reemplazo de LaTeX?",
     short-title: "Typst: ¿el reemplazo de LaTeX?", subtitle: "Una alternativa moderna y más amigable a LaTeX",
-    date: "10 de Mayo del 2023",
+    date: "25 de Mayo del 2023",
 )
 
 #slide(theme-variant: "title slide")

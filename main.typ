@@ -1,5 +1,6 @@
 #import "modulos/slides.typ": *
 #import "modulos/preview-block.typ": *
+#import "modulos/tablex.typ": *
 
 // Preambulo
 
@@ -49,6 +50,47 @@
 
 #slide(theme-variant: "wake up")[
   Comparativa LaTeX vs Typst
+]
+
+#slide(title: "Sintaxis")[
+  #set align(center)
+
+  #tablex(
+    columns: (auto, auto),
+    inset: 10pt,
+    [LaTeX],[Typst],
+    [```latex
+    \emph{Hello}
+    ```
+    ], [```typst
+    _Hello_
+    ```
+    ],
+    [```latex
+    \begin{itemize}
+      \item Apple
+      \item Orange
+      \item Banana
+    \end{itemize}
+    ```
+    ],
+    [```typst
+    - Apple
+    - Orange
+    - Banana
+    ```
+    ],
+    [```latex
+    \begin{equation*}
+      \sum_{i \in \mathbb{N}} 1 + i = \frac{1}{\sqrt{2}}
+    \end{equation*}
+    ```
+    ],
+    [```typst
+    $ sum_(i in NN) 1 + i = 1 / sqrt(2) $
+    ```
+    ],
+  )
 ]
 
 #slide(title: [#text(20pt)[`Fibonacci.tex`]])[
@@ -157,7 +199,13 @@ Se puede ocupar Typst en línea desde la página oficial de #link("https://typst
   - `typst compile <nombre>`: compila el archivo de Typst con el nombre especificado.
   - `typst watch <nombre>`: compila el archivo de Typst con el nombre especificado y lo actualiza automáticamente cada vez que se guardan cambios en el archivo.
 
-Nota: yo utilizo el comando `typst watch <nombre-typ>` y `zathura <nombre-pdf>` para ver los cambios en tiempo real.
+Nota: yo utilizo el comando
+
+```bash
+zathura nombre.pdf & typst watch nombre.typ
+``` 
+
+para ver los cambios en tiempo real.
 ]
 
 #slide(title: "Integración con VSCode")[
